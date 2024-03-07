@@ -2,7 +2,7 @@
 
   import axios from 'axios';
 
-  import {store} from '../src/store';
+  import {store} from './store.js';
 
   import AppHeader from './components/AppHeader.vue'
 
@@ -30,7 +30,7 @@
     created() {
 
       axios
-        .get('https://api.themoviedb.org/3/search/movie?api_key=97743c634c9ca6743f0e8d3a08c83291&query=Titanic')
+        .get('https://api.themoviedb.org/3/search/movie?api_key=97743c634c9ca6743f0e8d3a08c83291&query=' + this.store.search)
 
         .then(res => {
 
@@ -38,7 +38,7 @@
 
           console.log(res.data.results)
 
-          this.store.movie = res.data
+          this.store.movie = res.data.results
 
         }).catch(err => {
 
