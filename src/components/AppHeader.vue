@@ -2,17 +2,9 @@
 
     import axios from 'axios';
 
-    import search from '../components/search.vue'
-
     import {store} from '../store.js';
 
     export default {
-
-        components: {
-
-            search,
-
-        },
 
         name: 'AppHeader',
 
@@ -67,7 +59,12 @@
         <div class="box-img">
             <img class="w-100 h-100 " src="/public/logo.png" alt="@">
         </div>
-        <search @search="searchFilm()"></search>
+        <div>
+            <div class="input-group ">
+            <input type="text" class="form-control shadow-none" placeholder="Cerca" aria-label="Recipient's username" aria-describedby="button-addon2" v-model="store.search">
+            <button class="btn btn-outline-secondary" type="button" id="button-addon2" @click="searchFilm()"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>  
+        </div>
     </div>
 
 </template>

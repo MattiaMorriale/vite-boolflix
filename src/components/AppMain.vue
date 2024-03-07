@@ -2,9 +2,7 @@
 
     import {store} from '../store.js';
 
-    import movieCard from '../components/movieCard.vue'
-
-    import seriesCard from '../components/seriesCard.vue'
+    import AppCard from '../components/AppCard.vue'
 
     export default {
 
@@ -20,8 +18,7 @@
 
         components: {
 
-            movieCard,
-            seriesCard,
+            AppCard,
 
         }
         
@@ -31,11 +28,18 @@
 
 <template>
 
-    <div class="box  px-3 py-3 d-flex flex-wrap ">
-        <movieCard v-for="currentMovie in store.movie" :movie="currentMovie"></movieCard>
+    <div class="py-4 w-100 d-flex justify-content-center" v-if="store.movie.length != 0">
+        <h2>Film</h2>
     </div>
-    <div class="box px-3 pt-3 d-flex flex-wrap ">
-        <seriesCard v-for="currentSeries in store.series" :series="currentSeries"></seriesCard>
+    <div class="box px-5 py-3 d-flex flex-wrap">
+        
+        <AppCard v-for="currentMovie in store.movie" :item="currentMovie"></AppCard>
+    </div>
+    <div class="py-4 w-100 d-flex justify-content-center" v-if="store.series.length!= 0">
+        <h2>Serie Tv</h2>
+    </div>
+    <div class="box px-5 py-3 d-flex flex-wrap">
+        <AppCard v-for="currentSeries in store.series" :item="currentSeries"></AppCard>
     </div>
 
 </template>
