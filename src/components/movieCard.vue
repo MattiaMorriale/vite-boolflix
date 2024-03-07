@@ -10,6 +10,14 @@ export default {
 
     },
 
+    methods: {
+        language(lingua) {
+            
+            return `https://flagcdn.com/16x12/${lingua}.png`
+
+        }
+    }
+
 }
 
 </script>
@@ -21,7 +29,10 @@ export default {
         <div class="card-body">
             <h4 class="card-title">{{ movie.original_title }}</h4>
             <strong class="card-text">{{ movie.title }}</strong>
-            <p class="card-text">Lingua: {{ movie.original_language }}</p>
+            <div class="d-block ">
+                <p class="m-0 d-inline">Lingua: </p>
+                <img class="d-inline " :src="language(movie.original_language)" alt="@">
+            </div>
             <p class="card-text">Voto: {{ movie.vote_average }}</p>
         </div>
     </div>
