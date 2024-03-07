@@ -2,21 +2,22 @@
 
 export default {
 
-    name: 'movieCard',
-
+    name: 'seriesCard',
+    
     props: {
 
-        movie: Object,
+        series: Object,
 
     },
 
     methods: {
-        language(lingua) {
 
-            let flag = this.movie.original_language;
-            
-            
-            switch(this.movie.original_language){
+        language() {
+
+            let flag = this.series.original_language;
+
+
+            switch(this.series.original_language){
             case "ja":
                 flag = "jp";
                 break;
@@ -60,22 +61,18 @@ export default {
     <div class="card">
         <img src="..." class="card-img-top" alt="...">
         <div class="card-body">
-            <h4 class="card-title">{{ movie.original_title }}</h4>
-            <strong class="card-text">{{ movie.title }}</strong>
+            <h4 class="card-title">{{ series.original_name }}</h4>
+            <strong class="card-text">{{ series.name }}</strong>
             <div class="d-block ">
                 <p class="m-0 d-inline">Lingua: </p>
-                <img class="d-inline " :src="language(movie.original_language)" alt="">
+                <img class="d-inline " :src="language(series.original_language)" alt="">
             </div>
-            <p class="card-text">Voto: {{ movie.vote_average }}</p>
+            <p class="card-text">Voto: {{ series.vote_average }}</p>
         </div>
     </div>
 
 </template>
 
 <style>
-
-.card {
-    width: calc(100% / 5 - 20px / 5 * 4);
-}
 
 </style>

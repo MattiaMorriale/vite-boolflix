@@ -4,6 +4,8 @@
 
     import movieCard from '../components/movieCard.vue'
 
+    import seriesCard from '../components/seriesCard.vue'
+
     export default {
 
         name: 'AppMain',
@@ -19,6 +21,7 @@
         components: {
 
             movieCard,
+            seriesCard,
 
         }
         
@@ -28,18 +31,22 @@
 
 <template>
 
-    <div class="box-card px-3 pt-3 d-flex flex-wrap ">
+    <div class="box  px-3 py-3 d-flex flex-wrap ">
         <movieCard v-for="currentMovie in store.movie" :movie="currentMovie"></movieCard>
+    </div>
+    <div class="box px-3 pt-3 d-flex flex-wrap ">
+        <seriesCard v-for="currentSeries in store.series" :series="currentSeries"></seriesCard>
     </div>
 
 </template>
 
 <style>
 
-.box-card{
+.box{
     width: 100%;
 
     gap: 20px;
 }
+
 
 </style>
