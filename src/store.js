@@ -6,6 +6,8 @@ export const store = reactive ({
 
     series: [],
 
+    cast: [],
+
     search: '',
 
 });

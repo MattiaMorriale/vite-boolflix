@@ -1,6 +1,16 @@
 <script>
 
+import axios from 'axios';
+
+import {store} from '../store.js';
+
 export default {
+
+    data() {
+        return {
+            store,
+        }
+    },
 
     name: 'AppCard',
 
@@ -54,7 +64,31 @@ export default {
 
         movieImage(img) {
 
-            return `https://image.tmdb.org/t/p/w500${img}`
+            return `https://image.tmdb.org/t/p/w1280${img}`
+
+        },
+
+        getCast(id) {
+
+            axios
+            .get(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=97743c634c9ca6743f0e8d3a08c83291`)
+
+            .then(res => {
+
+            console.log('ricerca percepita 3')
+
+            console.log(res.data.cast)
+
+            this.store.cast = res.data.cast
+
+            this.store.cast.splice(5, store.cast.length)
+
+            }).catch(err => {
+
+            console.log(err)
+
+            })
+
 
         },
 
@@ -99,7 +133,7 @@ export default {
                              
                               -->
 
-    <div class="card border-0">
+    <div class="card border-0" @click=getCast(item.id)>
         <div class="content">
             <div class="front">
                 <div class="box-img">
@@ -116,6 +150,9 @@ export default {
                 </div>
                     <p class="card-text" >Voto: <i v-for="stars in starsVote()" :class="stars"></i>
                     </p>
+                    <div class="">
+                        <span v-for="currentCast in store.cast">{{ currentCast.name }}, </span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -128,18 +165,10 @@ export default {
 
 .card {
     width: calc(100% / 5 - 20px / 5 * 4);
-    height: 342px;
-    
+    height: 400px;
 
     .box-img{
-        height: 342px;
-        
-        img{
-            width: 100%;
-            height: auto;
-            aspect-ratio: 1 / 1.5;
-        };
-
+        height: 400px;
     }
 }
 
