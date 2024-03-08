@@ -128,10 +128,18 @@ export default {
 
 .card {
     width: calc(100% / 5 - 20px / 5 * 4);
-    height: 400px;
+    height: 342px;
+    
 
     .box-img{
-        height: 400px;
+        height: 342px;
+        
+        img{
+            width: 100%;
+            height: auto;
+            aspect-ratio: 1 / 1.5;
+        };
+
     }
 }
 

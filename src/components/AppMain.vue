@@ -20,7 +20,7 @@
 
             AppCard,
 
-        }
+        },
         
     }
 
@@ -28,7 +28,7 @@
 
 <template>
 
-    <div class="py-4 w-100 d-flex justify-content-center" v-if="store.movie.length != 0">
+    <div class="py-4 w-100 d-flex justify-content-center movie" v-if="store.movie.length != 0">
         <h2>Film</h2>
     </div>
     <div class="box px-5 py-3 d-flex flex-wrap">
@@ -45,6 +45,10 @@
 </template>
 
 <style>
+
+.movie{
+    margin-top: 100px;
+}
 
 .box{
     width: 100%;

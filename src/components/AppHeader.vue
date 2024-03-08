@@ -20,6 +20,10 @@
 
             searchFilm() {
 
+                this.store.movie = [],
+
+                this.store.series = [],
+
                 axios
                 .get('https://api.themoviedb.org/3/search/movie?api_key=97743c634c9ca6743f0e8d3a08c83291&query=' + this.store.search)
                 
@@ -61,8 +65,8 @@
         </div>
         <div>
             <div class="input-group ">
-            <input type="text" class="form-control shadow-none" placeholder="Cerca" aria-label="Recipient's username" aria-describedby="button-addon2" v-model="store.search">
-            <button class="btn btn-outline-secondary" type="button" id="button-addon2" @click="searchFilm()"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <input type="text" class="form-control shadow-none" placeholder="Cerca" aria-label="Recipient's username" aria-describedby="button-addon2" v-model="store.search">
+                <button class="btn btn-outline-secondary" type="button" id="button-addon2" @click="searchFilm()"><i class="fa-solid fa-magnifying-glass"></i></button>
             </div>  
         </div>
     </div>
@@ -74,6 +78,14 @@
 .box-header{
     width: 100%;
     height: 80px;
+
+    background-color: black;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    z-index: 99;
 
     display: flex;
     align-items: center;
