@@ -8,6 +8,8 @@ export const store = reactive ({
 
     cast: [],
 
+    arrGen: [],
+
     search: '',
 
 });

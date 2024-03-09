@@ -34,10 +34,6 @@
 
         .then(res => {
 
-          console.log('ricerca percepita')
-
-          console.log(res.data.results)
-
           this.store.movie = res.data.results
 
         }).catch(err => {
@@ -52,10 +48,6 @@
 
         .then(res => {
 
-          console.log('ricerca percepita 2')
-
-          console.log(res.data.results)
-
           this.store.series = res.data.results
 
         }).catch(err => {
@@ -64,7 +56,18 @@
 
         })
 
-      }
+        axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=e99307154c6dfb0b4750f6603256716d&`)
+        
+        .then(res => {
+
+        this.store.arrGen = res.data
+
+        console.log(store.arrGen.genres);
+
+
+        }).catch(err => {
+          console.log(err)})
+    }
   }
 
 </script>

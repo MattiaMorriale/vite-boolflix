@@ -28,21 +28,14 @@
                 .get('https://api.themoviedb.org/3/search/movie?api_key=97743c634c9ca6743f0e8d3a08c83291&query=' + this.store.search)
                 
                 .then(res => {
-                console.log(res.data.results)
 
                 this.store.movie = res.data.results;
                 });
-
-                console.log("Ricerca percepita")
             
                 axios
                 .get('https://api.themoviedb.org/3/search/tv?api_key=97743c634c9ca6743f0e8d3a08c83291&language=it_IT&query=' + this.store.search)
         
                 .then(res => {
-        
-                console.log('ricerca percepita 2')
-        
-                console.log(res.data.results)
         
                 this.store.series = res.data.results
         

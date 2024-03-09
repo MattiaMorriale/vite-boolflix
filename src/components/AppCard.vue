@@ -75,13 +75,9 @@ export default {
 
             .then(res => {
 
-            console.log('ricerca percepita 3')
+            console.log('ricerca percepita 3'),
 
             console.log(res.data.cast)
-
-            this.store.cast = res.data.cast
-
-            this.store.cast.splice(5, store.cast.length)
 
             }).catch(err => {
 
@@ -137,13 +133,13 @@ export default {
         <div class="content">
             <div class="front">
                 <div class="box-img">
-                    <img  :src="movieImage(item.poster_path)" class="card-img-top h-100 rounded-2 ">
+                    <img  :src="movieImage(item.poster_path)" class="card-img-top h-100 rounded-2 img-fluid ">
                 </div>
             </div>
             <div class="back">
                 <div class="card-body">
-                    <h4 class="card-title">{{ item.original_title }}</h4>
-                    <strong class="card-text">{{ item.title }}</strong>
+                    <h4 class="card-title">{{ item.original_title ? item.original_title : item.original_name}}</h4>
+                    <strong class="card-text">{{ item.title ? item.title : item.name }}</strong>
                 <div class="d-block ">
                     <p class="m-0 d-inline">Lingua: </p>
                     <img class="d-inline " :src="languageMovie(item.original_language)" alt="">
@@ -164,7 +160,7 @@ export default {
 <style>
 
 .card {
-    width: calc(100% / 5 - 20px / 5 * 4);
+    width: calc(100% / 6 - 20px / 6 * 5);
     height: 400px;
 
     .box-img{
